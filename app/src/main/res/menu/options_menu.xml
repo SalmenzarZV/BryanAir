@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuItemMyAccount"
+        android:title="@string/menuItemMyAccount">
+        <menu >
+            <item
+                android:id="@+id/subItemPersonalData"
+                android:title="@string/subItemPersonalData" />
+            <item
+                android:id="@+id/subItemTravelDocs"
+                android:title="@string/subItemTravelDocs" />
+            <item
+                android:id="@+id/subItemTravelMates"
+                android:title="@string/subItemTravelMates" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/menuItemMyTravels"
+        android:title="@string/menuItemMyTravels" />
+    <item
+        android:id="@+id/menuItemBoardingPass"
+        android:title="@string/menuItemBoardingPass" />
+    <item
+        android:id="@+id/menuItemFlightInfo"
+        android:title="@string/menuItemFlightInfo" />
+    <item
+        android:id="@+id/menuItemUpdatedInfo"
+        android:title="@string/menuItemUpdatedInfo" />
+    <item
+        android:id="@+id/menuItemGiftVoucher"
+        android:title="@string/menuItemGiftVoucher" />
+    <item
+        android:id="@+id/menuItemFlightMagazine"
+        android:title="@string/menuItemFlightMagazine" />
+    <item
+        android:id="@+id/menuItemTerms"
+        android:title="@string/menuItemTerms" />
+    <item
+        android:id="@+id/menuItemHelpCenter"
+        android:title="@string/menuItemHelpCenter" />
+    <item
+        android:id="@+id/menuItemContact"
+        android:title="@string/menuItemContact" />
+    <item
+        android:id="@+id/menuItemPrivacityPolicy"
+        android:title="@string/menuItemPrivacityPolicy" />
+    <item
+        android:id="@+id/menuItemPrivacityConfig"
+        android:title="@string/menuItemPrivacityConfig" />
+</menu>

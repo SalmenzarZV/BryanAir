@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">BryanAir</string>
+    <string name="etDeparture">Ciudad de salida</string>
+    <string name="ivLogo">navajaso</string>
+    <string name="etDestination">Ciudad de destino</string>
+    <string name="tvPersonalData">Datos Personales</string>
+    <string name="etName">Nombre</string>
+    <string name="tvApellidos">Apellidos:</string>
+    <string name="tvAdress">Dirección:</string>
+    <string name="tvPhone">Teléfono:</string>
+    <string name="tvEmail">E-Mail:</string>
+    <string name="swInvalid">¿Movilidad Reducida?</string>
+    <string name="tvExtras">¿Desea algún extra en el viaje?</string>
+    <string name="chipFirstAid">Kit de Primeros Auxilios</string>
+    <string name="chipFirstClass">Primera Clase</string>
+    <string name="chipPet">Incluyo Mascota</string>
+    <string name="chipWindow">Asiento con ventanilla</string>
+    <string name="chipBreakfast">Desayuno</string>
+    <string name="chipLunch">Almuerzo</string>
+    <string name="chipDinner">Cena</string>
+    <string name="tvInsurance">¿Seguro de viaje?</string>
+    <string name="rbYes">Si (+500$).</string>
+    <string name="rbNo">No.</string>
+    <string name="tvConditions">Para consultar las condiciones de nuestro seguro de viaje <a href="https://help.ryanair.com/hc/es-es">
+        visite nuestra página web
+    </a></string>
+    <string name="cbTerms">Acepto los <a href="https://www.ryanair.com/es/es/informacin-util/centro-de-ayuda/terminos-y-condiciones">
+        términos y condiciones
+    </a> respecto al uso de datos y seguridad</string>
+    <string name="btBuy">Comprar</string>
+    <string name="tvPremium">!!!!OPCIÓN PRIMO¡¡¡¡</string>
+    <string name="ibPremium">Primo</string>
+    <string name="menuItemMyTravels">Mis Viajes</string>
+    <string name="menuItemBoardingPass">Tarjeta de Embarque</string>
+    <string name="menuItemFlightInfo">Información sobre el Vuelo</string>
+    <string name="menuItemUpdatedInfo">Información Actualizada</string>
+    <string name="menuItemGiftVoucher">Vales Regalo</string>
+    <string name="menuItemFlightMagazine">Revista de Vuelo</string>
+    <string name="menuItemTerms">Términos y Condiciones</string>
+    <string name="menuItemHelpCenter">Centro de Ayuda</string>
+    <string name="menuItemContact">Contactar con la Aerolínea</string>
+    <string name="menuItemPrivacityPolicy">Política de Privacidad</string>
+    <string name="menuItemPrivacityConfig">Configuración de Privacidad</string>
+    <string name="menuItemMyAccount">Mi Cuenta</string>
+    <string name="subItemPersonalData">Datos Personales</string>
+    <string name="subItemTravelDocs">Mis Documentos de Viaje</string>
+    <string name="subItemTravelMates">Mis Compañeros de Viaje</string>
+    <string name="alertDialogMessage">¿Desea Comprar esta opción?</string>
+    <string name="alertDialogTitle">Está a punto de comprar un viaje</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+
+</resources>
