@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">BryanAir</string>
-    <string name="etDeparture">Ciudad de salida</string>
+    <string name="etDeparture">Ciudad de salida*</string>
     <string name="ivLogo">navajaso</string>
-    <string name="etDestination">Ciudad de destino</string>
+    <string name="etDestination">Ciudad de destino*</string>
     <string name="tvPersonalData">Datos Personales</string>
-    <string name="etName">Nombre</string>
-    <string name="tvApellidos">Apellidos:</string>
+    <string name="etName">Nombre*</string>
+    <string name="tvApellidos">Apellidos:*</string>
     <string name="tvAdress">Dirección:</string>
     <string name="tvPhone">Teléfono:</string>
     <string name="tvEmail">E-Mail:</string>
@@ -49,5 +49,6 @@
     <string name="alertDialogTitle">Está a punto de comprar un viaje</string>
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="sampleText">sampleText</string>
 
 </resources>
