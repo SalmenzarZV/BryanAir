@@ -50,5 +50,8 @@
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
     <string name="sampleText">sampleText</string>
+    <string name="btBuyBuy">Confirmar compra</string>
+    <string name="tvCheck">Compruebe que sus datos son correctos</string>
+    <string name="ivArrow">Arrow Icon</string>
 
 </resources>

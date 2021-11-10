@@ -20,6 +20,9 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText etDeparture, etDestination, etName, etSurname;
 
@@ -82,38 +85,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             name = etName.getText().toString();
             surnane = etSurname.getText().toString();
 
-            if (view.equals(ibPremium)){
+            if (view.equals(ibPremium) || view.equals(btBuy)){
+                int price = generateSeed(departure.toLowerCase(), destination.toLowerCase());
+                if (view.equals(ibPremium)) price+= 500;
+
                 Intent intent = new Intent(this, BuyActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("departure", departure);
                 bundle.putString("destination", destination);
                 bundle.putString("name", name);
                 bundle.putString("surname", surnane);
+                bundle.putInt("price", price);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
 
-            //TODO PROBAR SNACKBAR EN INVALID Y UNIFICAR COMPRAS
-            if (view.equals(btBuy)){
-                Snackbar mySnack = Snackbar.make(view ,"Gracias por su compra", Snackbar.LENGTH_LONG);
-                mySnack.show();
-            }
         } else {
             Toast.makeText(this, "Tiene que aceptar los terminos y condiciones y rellenar los campos con *", Toast.LENGTH_LONG).show();
         }
 
+    }
 
-        if (view.equals(swInvalid)){
-            Toast toast;
-            if (swInvalid.isChecked()){
-                toast = Toast.makeText(this, "Lo siento, eres minusválido", Toast.LENGTH_LONG);
-            } else {
-                toast = Toast.makeText(this, "Felicidades, no eres minusválido", Toast.LENGTH_LONG);
-            }
-            toast.show();
+    private int generateSeed(String departure, String destination) {
+        int price;
+        String seedText = departure + destination;
+        int seed=0;
+        for (int i = 0; i<seedText.length(); i++){
+            seed += seedText.getBytes(StandardCharsets.UTF_8)[i];
         }
 
-
+        return price = seed;
     }
 
     private boolean emptyFields() {
@@ -127,4 +128,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return empty;
     }
+
 }

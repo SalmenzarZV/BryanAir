@@ -2,6 +2,7 @@ package com.pmdm.almenzarjimenezsergio.bryanair;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +11,10 @@ import android.widget.Toast;
 import androidx.fragment.app.DialogFragment;
 
 public class Alertadialogo extends DialogFragment {
-    String etDeparture, etDestination, etName, etApellidos;
+    Bundle bundle;
 
-    public Alertadialogo(String etDeparture, String etDestination, String etName, String etApellidos) {
-        this.etDeparture = etDeparture;
-        this.etDestination = etDestination;
-        this.etName = etName;
-        this.etApellidos = etApellidos;
+    public Alertadialogo(Bundle bundle) {
+        this.bundle = bundle;
     }
 
     @Override
@@ -27,7 +25,10 @@ public class Alertadialogo extends DialogFragment {
                 .setPositiveButton(R.string.aceptar, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        Context context = getContext();
+                        Intent intent = new Intent(context, BillActivity.class);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
                     }
                 })
                 .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {

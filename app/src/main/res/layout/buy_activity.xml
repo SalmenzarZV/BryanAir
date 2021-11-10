@@ -6,34 +6,88 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvNameBuy"
+        android:id="@+id/tvCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/etName"
+        android:layout_marginTop="128dp"
+        android:fontFamily="@font/amarante"
+        android:gravity="center"
+        android:text="@string/tvCheck"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvSurnameBuy"
+        android:id="@+id/tvNameBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tvApellidos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameBuy" />
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvCheck"
+        app:layout_constraintTop_toBottomOf="@+id/tvCheck" />
 
     <TextView
         android:id="@+id/tvDepartureBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/etDeparture"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvNameBuy"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSurnameBuy" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNameBuy" />
 
     <TextView
         android:id="@+id/tvDestinationBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/etDestination"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvNameBuy"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameBuy" />
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/ivArrow"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDepartureBuy"
+        app:layout_constraintEnd_toStartOf="@+id/tvDestinationBuy"
+        app:layout_constraintStart_toEndOf="@+id/tvDepartureBuy"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameBuy"
+        app:srcCompat="@drawable/ic_baseline_arrow_right_alt_24" />
+
+    <Button
+        android:id="@+id/btBuyBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btBuyBuy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btCancelBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btBuyBuy" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/amarante"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDepartureBuy" />
+        app:layout_constraintTop_toBottomOf="@+id/ivArrow" />
 </androidx.constraintlayout.widget.ConstraintLayout>
