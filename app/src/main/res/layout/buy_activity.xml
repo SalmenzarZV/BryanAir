@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -54,6 +53,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/ivArrow"
+        android:maxWidth="@dimen/arrow_width"
         app:layout_constraintBottom_toBottomOf="@+id/tvDepartureBuy"
         app:layout_constraintEnd_toStartOf="@+id/tvDestinationBuy"
         app:layout_constraintStart_toEndOf="@+id/tvDepartureBuy"
@@ -81,13 +81,19 @@
         app:layout_constraintEnd_toStartOf="@+id/btBuyBuy" />
 
     <TextView
-        android:id="@+id/tvPrice"
+        android:id="@+id/tvPriceBuy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivArrow"
+        style="@style/tvsBuy" />
+
+    <TextView
+        android:id="@+id/tvDateBuy"
+        style="@style/tvsBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/amarante"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivArrow" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceBuy" />
 </androidx.constraintlayout.widget.ConstraintLayout>

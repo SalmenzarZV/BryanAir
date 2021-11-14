@@ -11,15 +11,11 @@
     <string name="tvEmail">E-Mail:</string>
     <string name="swInvalid">¿Movilidad Reducida?</string>
     <string name="tvExtras">¿Desea algún extra en el viaje?</string>
-    <string name="chipFirstAid">Kit de Primeros Auxilios</string>
-    <string name="chipFirstClass">Primera Clase</string>
-    <string name="chipPet">Incluyo Mascota</string>
-    <string name="chipWindow">Asiento con ventanilla</string>
-    <string name="chipBreakfast">Desayuno</string>
-    <string name="chipLunch">Almuerzo</string>
-    <string name="chipDinner">Cena</string>
+    <string name="cbFirstClass">Primera Clase (+500€)</string>
+    <string name="cbPet">Incluyo Mascota (+0€)</string>
+    <string name="cbWindow">Asiento con ventanilla (+50€)</string>
     <string name="tvInsurance">¿Seguro de viaje?</string>
-    <string name="rbYes">Si (+500$).</string>
+    <string name="rbYes">Si (+500€).</string>
     <string name="rbNo">No.</string>
     <string name="tvConditions">Para consultar las condiciones de nuestro seguro de viaje <a href="https://help.ryanair.com/hc/es-es">
         visite nuestra página web
@@ -53,5 +49,19 @@
     <string name="btBuyBuy">Confirmar compra</string>
     <string name="tvCheck">Compruebe que sus datos son correctos</string>
     <string name="ivArrow">Arrow Icon</string>
+    <string name="tvThankU">¡Gracias por su Compra!</string>
+    <string name="tvNameBill">Nombre: </string>
+    <string name="tvDepartureBill">Salida: </string>
+    <string name="tvDestinationBill">Destino: </string>
+    <string name="tvPremiumBill">¿Primo?: </string>
+    <string name="tvInsuranceBill">Seguro de viaje: </string>
+    <string name="tvPetBill">Mascota: </string>
+    <string name="tvFirstClassBill">Primera clase: </string>
+    <string name="tvWindowBill">Asiento con ventana: </string>
+    <string name="tvPriceBill">Precio final: </string>
+    <string name="btBack">Volver</string>
+    <string name="etDate">Fecha de salida*</string>
+    <string name="tvDateBill">"Fecha de Salida: </string>
+
 
 </resources>

@@ -10,4 +10,5 @@
     <color name="blue_logo">#091D2F</color>
     <color name="blue_logo_variant">#061522</color>
     <color name="dirty_gold_logo">#5E5F1B</color>
+    <color name="red">#FF0000</color>
 </resources>

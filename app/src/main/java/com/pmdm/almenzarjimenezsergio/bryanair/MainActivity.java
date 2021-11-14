@@ -2,11 +2,8 @@ package com.pmdm.almenzarjimenezsergio.bryanair;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,34 +12,18 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Switch;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import java.nio.charset.StandardCharsets;
-import java.util.Locale;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText etDeparture, etDestination, etName, etSurname;
-
     Button btBuy;
     ImageButton ibPremium;
-    CheckBox cbTerms;
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
-    Switch swInvalid;
-
-
-
-    public void initActivity(){
-        Intent intentAdd = new Intent(this, BuyActivity.class);
-        Bundle bundleAdd = new Bundle();
-
-        intentAdd.putExtras(bundleAdd);
-        startActivity(intentAdd);
-    }
-
-
+    CheckBox cbTerms, cbWindow, cbPet, cbFirstClass;
+    boolean window, pet, firstClass, insurance, premium;
+    EditText etDestination, etDeparture, etName, etSurname, etDate;
+    String destination, departure, name, date;
+    RadioButton rbYes;
+    int price;
 
 
 
@@ -50,22 +31,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initialize();
+    }
 
+    private void initialize() {
         btBuy = findViewById(R.id.btBuy);
         ibPremium = findViewById(R.id.ibPremium);
         cbTerms = findViewById(R.id.cbTerms);
-        swInvalid =  findViewById(R.id.swInvalid);
-
-        etDeparture = findViewById(R.id.etDeparture);
+        cbWindow = findViewById(R.id.cbWindow);
+        cbPet = findViewById(R.id.cbPet);
+        cbFirstClass = findViewById(R.id.cbFirstClass);
+        rbYes = findViewById(R.id.rbYes);
         etDestination = findViewById(R.id.etDestination);
+        etDeparture = findViewById(R.id.etDeparture);
         etName = findViewById(R.id.etName);
         etSurname = findViewById(R.id.etSurname);
+        etDate = findViewById(R.id.etDate);
+
+        price =0;
+        window = pet = insurance = firstClass = premium = false;
 
         btBuy.setOnClickListener(this);
         ibPremium.setOnClickListener(this);
-
+        etDate.setOnClickListener(this);
     }
 
+    private void stringsInit() {
+        destination  = etDestination.getText().toString();
+        departure = etDeparture.getText().toString();
+        name = etName.getText().toString() + " " + etSurname.getText().toString();
+        date = etDate.getText().toString();
+
+    }
 
 
     @Override
@@ -77,56 +74,94 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if(cbTerms.isChecked() && !emptyFields()){
 
-            String departure, destination, name, surnane;
-            departure = etDeparture.getText().toString();
-            destination = etDestination.getText().toString();
-            name = etName.getText().toString();
-            surnane = etSurname.getText().toString();
-
-            if (view.equals(ibPremium) || view.equals(btBuy)){
-                int price = generateSeed(departure.toLowerCase(), destination.toLowerCase());
-                if (view.equals(ibPremium)) price+= 500;
-
+        if (view.equals(ibPremium) || view.equals(btBuy)){
+            if(cbTerms.isChecked() && !emptyFields()){
+                stringsInit();
+                calcuPrice(view);
                 Intent intent = new Intent(this, BuyActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("departure", departure);
-                bundle.putString("destination", destination);
-                bundle.putString("name", name);
-                bundle.putString("surname", surnane);
-                bundle.putInt("price", price);
-                intent.putExtras(bundle);
+                intent.putExtras(putBundle());
                 startActivity(intent);
+            } else {
+                Toast.makeText(this, "Tiene que aceptar los terminos y condiciones y rellenar los campos requeridos", Toast.LENGTH_LONG).show();
             }
+        }
 
-        } else {
-            Toast.makeText(this, "Tiene que aceptar los terminos y condiciones y rellenar los campos con *", Toast.LENGTH_LONG).show();
+        if (view.equals(etDate)){
+            DatePickerFragment newFragment = new DatePickerFragment(etDate);
+            newFragment.show(getSupportFragmentManager(), "datepicker");
         }
 
     }
 
-    private int generateSeed(String departure, String destination) {
-        int price;
-        String seedText = departure + destination;
-        int seed=0;
-        for (int i = 0; i<seedText.length(); i++){
-            seed += seedText.getBytes(StandardCharsets.UTF_8)[i];
+    private void calcuPrice(View view) {
+        price = 0;
+
+        for(int i = 0; i < destination.length(); i++){
+            price += destination.toLowerCase().charAt(i);
         }
 
-        return price = seed;
+        for(int i = 0; i < departure.length(); i++){
+            price += departure.toLowerCase().charAt(i);
+        }
+        String[] dateFields = date.split("/");
+
+        for (String dateField : dateFields) {
+            price += (Integer.parseInt(dateField) / 5);
+        }
+
+        price /= 5;
+
+        if (view.equals(ibPremium)){
+            price += 500;
+            premium = true;
+        }
+
+        if (cbFirstClass.isChecked()){
+            price += 500;
+            firstClass = true;
+        }
+
+        if (cbWindow.isChecked()){
+            price += 50;
+            window = true;
+        }
+
+        if (rbYes.isChecked()){
+            price += 500;
+            insurance = true;
+        }
+
+        if (cbPet.isChecked()){
+            pet = true;
+        }
+
+
+
+
     }
 
     private boolean emptyFields() {
-        boolean empty = false;
-        if(etName.getText().toString().length() == 0 || etSurname.getText().toString().length() == 0 ||
-                etDestination.getText().toString().length() == 0 ||
-                etDeparture.getText().toString().length() == 0){
-
-            empty = true;
-
-        }
-        return empty;
+        return etDestination.getText().toString().length() == 0 ||
+                etDeparture.getText().toString().length() == 0 ||
+                etName.getText().toString().length() == 0 ||
+                etSurname.getText().toString().length() == 0 ||
+                etDate.getText().toString().length() == 0;
     }
 
+    private Bundle putBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putString("name", name);
+        bundle.putString("departure", departure);
+        bundle.putString("destination", destination);
+        bundle.putString("date", date);
+        bundle.putInt("price", price);
+        bundle.putBoolean("premium", premium);
+        bundle.putBoolean("pet", pet);
+        bundle.putBoolean("insurance", insurance);
+        bundle.putBoolean("firstClass", firstClass);
+        bundle.putBoolean("window", window);
+
+        return bundle;
+    }
 }

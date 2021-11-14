@@ -10,10 +10,11 @@ import androidx.fragment.app.FragmentManager;
 
 
 public class BuyActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView tvNameBuy, tvDestinationBuy, tvDepartureBuy, tvPrice;
-    String departure, destination, name, surname, price;
+    TextView tvNameBuy, tvDestinationBuy, tvDepartureBuy, tvPriceBuy, tvDateBuy;
+    String departure, destination, name, price, date;
     Bundle bundle;
     Button btBuyBuy, btCancelBuy;
+    boolean window, pet, firstClass, insurance, premium;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,21 +30,29 @@ public class BuyActivity extends AppCompatActivity implements View.OnClickListen
         departure = bundle.getString("departure");
         destination = bundle.getString("destination");
         name = bundle.getString("name");
-        surname = bundle.getString("surname");
-        price = bundle.getInt("price") + "€";
+        price = Integer.toString(bundle.getInt("price"));
+        date = bundle.getString("date");
 
         tvNameBuy = findViewById(R.id.tvNameBuy);
         tvDepartureBuy = findViewById(R.id.tvDepartureBuy);
         tvDestinationBuy = findViewById(R.id.tvDestinationBuy);
-        tvPrice = findViewById(R.id.tvPrice);
+        tvPriceBuy = findViewById(R.id.tvPriceBuy);
+        tvDateBuy = findViewById(R.id.tvDateBuy);
 
         btBuyBuy = findViewById(R.id.btBuyBuy);
         btCancelBuy = findViewById(R.id.btCancelBuy);
 
-        tvNameBuy.append(name + " "+surname);
+        tvNameBuy.append(name);
         tvDepartureBuy.append(departure);
         tvDestinationBuy.append(destination);
-        tvPrice.append(price);
+        tvPriceBuy.append(price + "€");
+        tvDateBuy.append(date);
+
+        window = bundle.getBoolean("window");
+        pet = bundle.getBoolean("pet");
+        firstClass = bundle.getBoolean("firstClass");
+        insurance = bundle.getBoolean("insurance");
+        premium = bundle.getBoolean("premium");
 
         btBuyBuy.setOnClickListener(this);
         btCancelBuy.setOnClickListener(this);
@@ -56,9 +65,10 @@ public class BuyActivity extends AppCompatActivity implements View.OnClickListen
         }
 
         if (view.equals(btBuyBuy)){
+            bundle.putString("price", price+"€");
             Alertadialogo alertadialogo = new Alertadialogo(bundle);
             FragmentManager fragmentManager = getSupportFragmentManager();
-            alertadialogo.show(fragmentManager, "Consfirmar compra");
+            alertadialogo.show(fragmentManager, "Confirmar compra");
         }
     }
 }
