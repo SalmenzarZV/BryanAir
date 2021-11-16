@@ -10,11 +10,17 @@ import androidx.fragment.app.FragmentManager;
 
 
 public class BuyActivity extends AppCompatActivity implements View.OnClickListener {
+    //instance params
     TextView tvNameBuy, tvDestinationBuy, tvDepartureBuy, tvPriceBuy, tvDateBuy;
     String departure, destination, name, price, date;
     Bundle bundle;
     Button btBuyBuy, btCancelBuy;
     boolean window, pet, firstClass, insurance, premium;
+
+    /**
+     * Creation of visuals and logics foo buy_activity.xml
+     * @param savedInstanceState (Bundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +30,9 @@ public class BuyActivity extends AppCompatActivity implements View.OnClickListen
 
     }
 
+    /**
+     * buy_activity components initialization.
+     */
     private void initialize() {
         bundle = getIntent().getExtras();
 
@@ -58,6 +67,10 @@ public class BuyActivity extends AppCompatActivity implements View.OnClickListen
         btCancelBuy.setOnClickListener(this);
     }
 
+    /**
+     * onClick functions for buy_activity.xml views
+     * @param view -> btBuyBuy, btCancelBuy
+     */
     @Override
     public void onClick(View view) {
         if (view.equals(btCancelBuy)){

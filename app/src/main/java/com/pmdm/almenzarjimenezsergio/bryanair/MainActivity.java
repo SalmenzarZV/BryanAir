@@ -1,12 +1,15 @@
 package com.pmdm.almenzarjimenezsergio.bryanair;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +19,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    //instance params
     Button btBuy;
     ImageButton ibPremium;
     CheckBox cbTerms, cbWindow, cbPet, cbFirstClass;
@@ -26,7 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int price;
 
 
-
+    /**
+     * Creation of visuals and logics foo activity_main.xml
+     * @param savedInstanceState (Bundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initialize();
     }
 
+    /**
+     * activity_main components initialization.
+     */
     private void initialize() {
         btBuy = findViewById(R.id.btBuy);
         ibPremium = findViewById(R.id.ibPremium);
@@ -56,25 +66,68 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etDate.setOnClickListener(this);
     }
 
+    /**
+     * EditText harvesting
+     */
     private void stringsInit() {
         destination  = etDestination.getText().toString();
         departure = etDeparture.getText().toString();
         name = etName.getText().toString() + " " + etSurname.getText().toString();
         date = etDate.getText().toString();
-
     }
 
-
+    /**
+     * Options Menu creation
+     * @param menu Created
+     * @return true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        String url;
+        switch (item.getItemId()){
+            case R.id.subItemPersonalData:
 
+                break;
+
+            case R.id.menuItemPrivacityPolicy:
+                url = "https://www.ryanair.com/es/es/empresa/politica-de-privacidad";
+                goWeb(url);
+
+                break;
+
+            case R.id.menuItemContact:
+                url = "https://help.ryanair.com/hc/es-es/articles/360017684097?q=0";
+                goWeb(url);
+                break;
+
+            case R.id.menuItemHelpCenter:
+                url = "https://help.ryanair.com/hc/es-es?q=0";
+                goWeb(url);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void goWeb(String url) {
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * onClick functions for activity_main views
+     * @param view -> ibPremium, btBuy, etDate
+     */
     @Override
     public void onClick(View view) {
-
+        //MainActivity -> BuyActivity;
         if (view.equals(ibPremium) || view.equals(btBuy)){
             if(cbTerms.isChecked() && !emptyFields()){
                 stringsInit();
@@ -87,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        //DatePicker init
         if (view.equals(etDate)){
             DatePickerFragment newFragment = new DatePickerFragment(etDate);
             newFragment.show(getSupportFragmentManager(), "datepicker");
@@ -94,6 +148,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     *  Travel Price generation.
+     * @param view control between ibPremium & btBuy
+     */
     private void calcuPrice(View view) {
         price = 0;
 
@@ -135,12 +193,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (cbPet.isChecked()){
             pet = true;
         }
-
-
-
-
     }
 
+    /**
+     * Empty fields control
+     * @return true/false (empty/!empty)
+     */
     private boolean emptyFields() {
         return etDestination.getText().toString().length() == 0 ||
                 etDeparture.getText().toString().length() == 0 ||
@@ -149,6 +207,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 etDate.getText().toString().length() == 0;
     }
 
+    /**
+     * Bundle instance and inflate
+     * @return bundle
+     */
     private Bundle putBundle() {
         Bundle bundle = new Bundle();
         bundle.putString("name", name);

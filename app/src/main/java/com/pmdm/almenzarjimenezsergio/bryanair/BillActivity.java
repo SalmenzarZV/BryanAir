@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class BillActivity extends AppCompatActivity {
+    //instance params
     TextView tvNameBill, tvDestinationBill, tvDepartureBill, tvPremiumBill, tvWindowBill, tvPetBill,
             tvFirstClassBill, tvInsuranceBill, tvPriceBill, tvDateBill;
     String departure, destination, name, price, date;
@@ -15,7 +16,10 @@ public class BillActivity extends AppCompatActivity {
     Button btBack;
     boolean window, pet, firstClass, insurance, premium;
 
-
+    /**
+     * Creation of visuals and logics foo activity_bill.xml
+     * @param savedInstanceState (Bundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +27,9 @@ public class BillActivity extends AppCompatActivity {
         initialize();
     }
 
+    /**
+     * activity_bill components initialization.
+     */
     private void initialize() {
         bundle = getIntent().getExtras();
 
@@ -59,6 +66,9 @@ public class BillActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * activity_bill TextViews setter.
+     */
     private void putTvs() {
         tvNameBill.append(name);
         tvDepartureBill.append(departure);

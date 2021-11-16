@@ -12,13 +12,22 @@ import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
-
-
+    //instance params
     EditText etDate;
+
+    /**
+     * DatePicker Constructor
+     * @param etDate EditText we want to include a DatePicker
+     */
     public DatePickerFragment (EditText etDate){
         this.etDate = etDate;
     }
 
+    /**
+     * DatePicker Creation Method
+     * @param savedInstanceState (Bundle)
+     * @return instance of DatePickerDialog
+     */
     @Override
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -30,6 +39,13 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
+    /**
+     * EditText date setter.
+     * @param datePicker instance of the DatePicker
+     * @param year selected
+     * @param month selected
+     * @param day selected
+     */
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         final String selectedDate = day + "/" + (month+1) + "/" + year;
