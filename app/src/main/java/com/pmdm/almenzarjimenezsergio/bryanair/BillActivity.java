@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -58,6 +59,7 @@ public class BillActivity extends AppCompatActivity {
         putTvs();
 
         btBack = findViewById(R.id.btBack);
+        btBack.setVisibility(View.VISIBLE);
         btBack.setOnClickListener(view -> {
             finish();
             Intent intent = new Intent(this, MainActivity.class);

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -132,7 +133,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(cbTerms.isChecked() && !emptyFields()){
                 stringsInit();
                 calcuPrice(view);
-                Intent intent = new Intent(this, BuyActivity.class);
+                Configuration config = getResources().getConfiguration();
+                Intent intent;
+                if (config.smallestScreenWidthDp >=600){
+                    intent = new Intent(this, BillBuyActivity.class);
+                } else {
+                    intent = new Intent(this, BuyActivity.class);
+                }
+
                 intent.putExtras(putBundle());
                 startActivity(intent);
             } else {

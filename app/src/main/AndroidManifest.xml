@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BryanAir">
         <activity
+            android:name=".BillBuyActivity"
+            android:exported="true" />
+        <activity
             android:name=".BillActivity"
             android:exported="true" />
         <activity
