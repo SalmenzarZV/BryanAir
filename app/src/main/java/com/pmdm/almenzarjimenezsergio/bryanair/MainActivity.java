@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         //MainActivity -> BuyActivity;
         if (view.equals(ibPremium) || view.equals(btBuy)){
-            if(cbTerms.isChecked() && !emptyFields()){
+            if(cbTerms.isChecked() && camposCorrectos()){
                 stringsInit();
                 calcuPrice(view);
                 Configuration config = getResources().getConfiguration();
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtras(putBundle());
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "Tiene que aceptar los terminos y condiciones y rellenar los campos requeridos", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Tiene que aceptar los terminos y condiciones y rellenar los campos requeridos correctamente", Toast.LENGTH_LONG).show();
             }
         }
 
@@ -213,6 +213,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 etName.getText().toString().length() == 0 ||
                 etSurname.getText().toString().length() == 0 ||
                 etDate.getText().toString().length() == 0;
+    }
+
+    private boolean camposCorrectos(){
+        if (!emptyFields()){
+            String[] fields = {etDestination.getText().toString(),
+                    etDeparture.getText().toString(),
+                    etName.getText().toString(),
+                    etSurname.getText().toString()};
+
+            String specialChars = "!|@#¬'¡¿?=)(/&%$,;.:-_Ç¨*+][<>ºª";
+            String numbers = "1234567890";
+
+            for (String field : fields) {
+                for (int i = 0;i < field.length(); i++){
+                    String character = Character.toString(field.charAt(i));
+                    if (numbers.contains(character) || specialChars.contains(character)){
+                        return false;
+                    }
+                }
+            }
+        } else{
+            return false;
+        }
+
+        return true;
     }
 
     /**
