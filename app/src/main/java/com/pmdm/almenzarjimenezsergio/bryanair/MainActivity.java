@@ -234,4 +234,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return bundle;
     }
+
+    //BUSCAR NOSEQUE DE LOS ARGUMENTS
+    private Bundle putBundleArguments() {
+        Bundle bundle = new Bundle();
+        bundle.putString("name", name);
+        bundle.putString("departure", departure);
+        bundle.putString("destination", destination);
+        bundle.putString("date", date);
+        bundle.putInt("price", price);
+        bundle.putBoolean("premium", premium);
+        bundle.putBoolean("pet", pet);
+        bundle.putBoolean("insurance", insurance);
+        bundle.putBoolean("firstClass", firstClass);
+        bundle.putBoolean("window", window);
+
+        return bundle;
+    }
 }
