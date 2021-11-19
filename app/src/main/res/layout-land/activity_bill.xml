@@ -67,53 +67,49 @@
         app:layout_constraintTop_toBottomOf="@+id/tvPremiumBill" />
 
     <TextView
-        android:id="@+id/tvPetBill"
+        android:id="@+id/tvPriceBill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="@string/tvPetBill"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWindowBill" />
-
-    <TextView
-        android:id="@+id/tvFirstClassBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/tvFirstClassBill"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPetBill" />
-
-    <TextView
-        android:id="@+id/tvInsuranceBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/tvInsuranceBill"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFirstClassBill" />
+        android:text="@string/tvPriceBill"
+        app:layout_constraintStart_toEndOf="@+id/tvWindowBill"
+        app:layout_constraintTop_toBottomOf="@+id/tvThankU" />
 
     <TextView
         android:id="@+id/tvDateBill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/tvDateBill"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInsuranceBill" />
+        app:layout_constraintStart_toStartOf="@+id/tvPriceBill"
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceBill" />
 
     <TextView
-        android:id="@+id/tvPriceBill"
+        android:id="@+id/tvInsuranceBill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/tvPriceBill"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/tvInsuranceBill"
+        app:layout_constraintStart_toStartOf="@+id/tvFirstClassBill"
+        app:layout_constraintTop_toBottomOf="@+id/tvFirstClassBill" />
+
+    <TextView
+        android:id="@+id/tvFirstClassBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tvFirstClassBill"
+        app:layout_constraintStart_toStartOf="@+id/tvPetBill"
+        app:layout_constraintTop_toBottomOf="@+id/tvPetBill" />
+
+    <TextView
+        android:id="@+id/tvPetBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tvPetBill"
+        app:layout_constraintStart_toStartOf="@+id/tvDateBill"
         app:layout_constraintTop_toBottomOf="@+id/tvDateBill" />
 
     <Button

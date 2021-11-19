@@ -3,16 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout-land/activity_bill.xml" value="0.31040564373897706" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout-land/activity_bill_buy.xml" value="0.31040564373897706" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout-land/activity_main.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout-land/buy_activity.xml" value="0.41217798594847777" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout-sw600dp-land/activity_bill_buy.xml" value="0.23560910307898258" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout-sw600dp-land/activity_main.xml" value="0.41217798594847777" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout-sw600dp/activity_bill_buy.xml" value="0.5" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout/activity_bill.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout/activity_bill_buy.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout/activity_bill_buy.xml" value="0.67" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout/activity_privacy_config.xml" value="0.33" />
         <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout/buy_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/layout/content_bill_buy.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sergi/Desktop/BryanAir/app/src/main/res/menu/options_menu.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>

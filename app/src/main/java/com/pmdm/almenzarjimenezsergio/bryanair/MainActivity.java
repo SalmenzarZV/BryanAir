@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         String url;
+        Intent intent;
         switch (item.getItemId()){
             case R.id.subItemPersonalData:
 
@@ -111,6 +112,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menuItemHelpCenter:
                 url = "https://help.ryanair.com/hc/es-es?q=0";
                 goWeb(url);
+                break;
+            case R.id.menuItemPrivacityConfig:
+                intent = new Intent(this, PrivacyConfigActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.menuItemTerms:
+                url = "https://help.ryanair.com/hc/es-es/articles/360017824778?q=0";
+                goWeb(url);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -135,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 calcuPrice(view);
                 Configuration config = getResources().getConfiguration();
                 Intent intent;
-                if (config.smallestScreenWidthDp >=600){
+                if (config.smallestScreenWidthDp >=600 && config.orientation == Configuration.ORIENTATION_LANDSCAPE){
                     intent = new Intent(this, BillBuyActivity.class);
                 } else {
                     intent = new Intent(this, BuyActivity.class);

@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager;
 
 public class BuyActivity extends AppCompatActivity implements View.OnClickListener {
     //instance params
-    TextView tvNameBuy, tvDestinationBuy, tvDepartureBuy, tvPriceBuy, tvDateBuy;
+    TextView tvNameBuy, tvDestinationBuy, tvDepartureBuy, tvPriceBuy, tvDateBuy, tvCheck;
     String departure, destination, name, price, date;
     Bundle bundle;
     Button btBuyBuy, btCancelBuy;
@@ -47,15 +47,20 @@ public class BuyActivity extends AppCompatActivity implements View.OnClickListen
         tvDestinationBuy = findViewById(R.id.tvDestinationBuy);
         tvPriceBuy = findViewById(R.id.tvPriceBuy);
         tvDateBuy = findViewById(R.id.tvDateBuy);
+        tvCheck = findViewById(R.id.tvCheck);
 
         btBuyBuy = findViewById(R.id.btBuyBuy);
         btCancelBuy = findViewById(R.id.btCancelBuy);
+        btBuyBuy.setVisibility(View.VISIBLE);
+        btCancelBuy.setVisibility(View.VISIBLE);
 
+        tvCheck.setText(R.string.tvCheck);
         tvNameBuy.append(name);
         tvDepartureBuy.append(departure);
         tvDestinationBuy.append(destination);
         tvPriceBuy.append(price + "€");
         tvDateBuy.append(date);
+
 
         window = bundle.getBoolean("window");
         pet = bundle.getBoolean("pet");

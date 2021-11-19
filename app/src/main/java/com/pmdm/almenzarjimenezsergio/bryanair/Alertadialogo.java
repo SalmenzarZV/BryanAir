@@ -2,6 +2,7 @@ package com.pmdm.almenzarjimenezsergio.bryanair;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.bluetooth.BluetoothClass;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +31,6 @@ public class Alertadialogo extends DialogFragment {
                     startActivity(intent);
                 })
                 .setNegativeButton(R.string.cancelar, (dialogInterface, i) -> dialogInterface.cancel());
-
         return  builder.create();
     }
 

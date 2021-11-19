@@ -62,8 +62,14 @@
     <string name="btBack">Volver</string>
     <string name="etDate">Fecha de salida*</string>
     <string name="tvDateBill">"Fecha de Salida: </string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="swNotifications">Notificaciones Activadas</string>
+    <string name="swShareUse">Activar Opciones de Uso compartido</string>
+    <string name="swPersonalAds">Anuncios Personalizados</string>
+    <string name="swNewsletter">Recibir BryanAir Newsletter</string>
+    <string name="ticket">Billete</string>
+    <string name="title_activity_bill_buy">BillBuyActivity</string>
 
 
 </resources>

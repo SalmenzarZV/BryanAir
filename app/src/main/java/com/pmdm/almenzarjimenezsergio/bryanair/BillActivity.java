@@ -59,7 +59,6 @@ public class BillActivity extends AppCompatActivity {
         putTvs();
 
         btBack = findViewById(R.id.btBack);
-        btBack.setVisibility(View.VISIBLE);
         btBack.setOnClickListener(view -> {
             finish();
             Intent intent = new Intent(this, MainActivity.class);
