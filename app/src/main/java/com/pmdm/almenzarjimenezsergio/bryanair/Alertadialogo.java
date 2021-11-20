@@ -2,7 +2,6 @@ package com.pmdm.almenzarjimenezsergio.bryanair;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.bluetooth.BluetoothClass;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +13,19 @@ import androidx.fragment.app.DialogFragment;
 public class Alertadialogo extends DialogFragment {
     Bundle bundle;
 
+    /**
+     * Class constructor
+     * @param bundle who has MainActivity components data
+     */
     public Alertadialogo(Bundle bundle) {
         this.bundle = bundle;
     }
 
+    /**
+     * Construction of the AlertDialog
+     * @param savedInstanceState bundle
+     * @return creation of the dialog
+     */
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -33,6 +41,4 @@ public class Alertadialogo extends DialogFragment {
                 .setNegativeButton(R.string.cancelar, (dialogInterface, i) -> dialogInterface.cancel());
         return  builder.create();
     }
-
-
 }

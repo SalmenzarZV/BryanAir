@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class BillBuyActivity extends AppCompatActivity {
-
+    //Instance vars
     TextView tvNameBill, tvDestinationBill, tvDepartureBill, tvPremiumBill, tvWindowBill, tvPetBill,
             tvFirstClassBill, tvInsuranceBill, tvPriceBill, tvDateBill, tvNameBuy, tvDestinationBuy,
             tvDepartureBuy, tvPriceBuy, tvDateBuy, tvCheck;
@@ -18,6 +18,10 @@ public class BillBuyActivity extends AppCompatActivity {
     Button btBack, btBuyBuy, btCancelBuy;
     boolean window, pet, firstClass, insurance, premium;
 
+    /**
+     * Activity creation
+     * @param savedInstanceState bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,9 @@ public class BillBuyActivity extends AppCompatActivity {
         initialize();
     }
 
+    /**
+     * Component init
+     */
     private void initialize() {
         bundle = getIntent().getExtras();
         stringsInit();
@@ -33,6 +40,9 @@ public class BillBuyActivity extends AppCompatActivity {
         putBts();
     }
 
+    /**
+     * String init using bundle.
+     */
     private void stringsInit() {
         departure = bundle.getString("departure");
         destination = bundle.getString("destination");
@@ -41,6 +51,9 @@ public class BillBuyActivity extends AppCompatActivity {
         date = bundle.getString("date");
     }
 
+    /**
+     * button init, visibility and onclick listeners set
+     */
     private void putBts() {
         btBuyBuy = findViewById(R.id.btBuyBuy);
         btCancelBuy = findViewById(R.id.btCancelBuy);
@@ -49,9 +62,11 @@ public class BillBuyActivity extends AppCompatActivity {
         btBuyBuy.setVisibility(View.GONE);
         btCancelBuy.setVisibility(View.GONE);
         btBack.setOnClickListener(view -> finish());
-
     }
 
+    /**
+     * Extras boolean init
+     */
     private void booleanInit() {
         window = bundle.getBoolean("window");
         pet = bundle.getBoolean("pet");
@@ -60,6 +75,9 @@ public class BillBuyActivity extends AppCompatActivity {
         premium = bundle.getBoolean("premium");
     }
 
+    /**
+     * TextViews init
+     */
     private void putTvs() {
         //BillActivity
         tvNameBill = findViewById(R.id.tvNameBill);
@@ -86,6 +104,9 @@ public class BillBuyActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Tvs filled correctly
+     */
     private void appendTvs() {
         tvNameBuy.append(name);
         tvDepartureBuy.append(departure);

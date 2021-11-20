@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 public class PrivacyConfigActivity extends AppCompatActivity {
+    //instance vars
     Button btExit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +15,9 @@ public class PrivacyConfigActivity extends AppCompatActivity {
         initialize();
     }
 
+    /**
+     * components init
+     */
     private void initialize() {
         btExit = findViewById(R.id.btExit);
         btExit.setOnClickListener(view -> finish());
